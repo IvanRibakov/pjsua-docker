@@ -1,5 +1,5 @@
 # --- Stage 1: The Builder ---
-FROM alpine:3.23 AS builder
+FROM alpine:3.19 AS builder
 
 # Install build dependencies
 RUN apk add --no-cache \
@@ -24,7 +24,7 @@ RUN ./configure --disable-video --disable-sound \
     && make
 
 # --- Stage 2: The Final Minimal Image ---
-FROM alpine:3.23
+FROM alpine:3.19
 
 # Install only essential runtime libraries
 RUN apk add --no-cache \
