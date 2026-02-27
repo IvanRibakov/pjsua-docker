@@ -21,12 +21,12 @@ RUN apk add --no-cache \
     git
 
 # Define the PJPROJECT version
-ARG PJPROJECT_VERSION=2.16
+ARG PJPROJECT_VERSION=v2.16
 ENV PJPROJECT_VERSION=${PJPROJECT_VERSION}
 
 # Download and extract the source tarball
 WORKDIR /src
-RUN curl -L https://github.com/pjsip/pjproject/archive/refs/tags/${PJPROJECT_VERSION}.tar.gz | tar xz --strip-components=1
+RUN curl -L https://github.com/pjsip/pjproject/archive/refs/tags/${PJPROJECT_VERSION#v}.tar.gz | tar xz --strip-components=1
 
 # Here is exactly how you arrive at that number. PJSIP maps its TLS protocols to an enumerator (pj_ssl_sock_proto) using bit shifts. To combine them, you add the integer values together (which acts as a bitwise OR operation):
 #
