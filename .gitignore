@@ -1,0 +1,11 @@
+# Docker
+.dockerignore
+docker-compose.yml
+docker-compose.override.yml
+
+# IDE files
+.idea/
+.vscode/
+
+# Local build artifacts
+*.local
